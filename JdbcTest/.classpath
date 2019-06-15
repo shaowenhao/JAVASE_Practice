@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/sqlserver_jtds/jtds-1.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/bugfix/csjdbc.jar"/>
+	<classpathentry kind="lib" path="D:/dev/projects/integrate/build/conf/adapters/system/microsoft_sql_server_2012/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="lib/commons-exec-1.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

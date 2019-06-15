@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/test/chinateam/jdbc/DosTest.java=UTF-8
+encoding//src/test/chinateam/jdbc/JdbcTest.java=UTF-8
+encoding//src/test/chinateam/jdbc/JdbcTest_JTDS.java=UTF-8
+encoding//src/test/chinateam/jdbc/JdbcTest_Native.java=UTF-8
+encoding//src/test/chinateam/jdbc/JdbcTest_Thread.java=UTF-8
+encoding//src/test/chinateam/jdbc/SslTest.java=UTF-8
