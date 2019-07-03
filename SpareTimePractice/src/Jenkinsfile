@@ -6,17 +6,18 @@ pipeline{
     stages {
         stage('Example Build') {
            steps {
-               sh 'echo start build'
+               bat 'echo start build'
+               
            }
         }
         stage('Test') {
            steps {
-               sh 'echo start test'
+               bat 'echo start test'
            }
         }
         stage('Deploy') {
            steps {
-               sh 'echo start Deploy'               
+               bat 'echo start Deploy'               
            }
         }
     }
