@@ -1,23 +1,32 @@
 pipeline{
     agent any
+    // bat get cms not recognized add environemnt
+    environment {
+        PATH = "C:\\WINDOWS\\SYSTEM32"  
+    }
     options {
         skipStagesAfterUnstable()
     }
     stages {
         stage('Example Build') {
            steps {
-               bat 'echo start build'
-               
+               bat script: 'dir'
+               echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
            }
         }
         stage('Test') {
+        when{
+            expression {
+            currentBuild.result == null || currentBuild.result=='SUCCESS'
+            }       
+        }
            steps {
-               bat 'echo start test'
+               bat script: 'echo start test'
            }
         }
         stage('Deploy') {
            steps {
-               bat 'echo start Deploy'               
+               bat script: 'echo start Deploy'               
            }
         }
     }
