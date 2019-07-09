@@ -1,0 +1,32 @@
+pipeline {
+  //Setting environment variables dynamically
+ 
+    agent any 
+    environment {
+        // Using returnStdout
+        PATH = "C:\\WINDOWS\\SYSTEM32"  
+
+    }
+    stages {
+        stage('Example') {
+            environment {
+         CC = """${bat(
+                returnStdout: true,
+                script: 'echo "clang"'
+            )}""" 
+            
+        // Using returnStatus
+        EXIT_STATUS = """${bat(
+                returnStatus: true,
+                script: 'exit 1'
+            )}"""
+            
+                DEBUG_FLAGS = '-g'
+            }
+            steps {
+                bat 'printenv'
+            }
+        }
+    }
+}
+
