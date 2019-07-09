@@ -1,0 +1,23 @@
+pipeline {
+    agent {
+        label 'TestMachine'
+    }
+    stages{
+        
+       stage('Try stash and unstash'){
+           steps{
+           dir('/home/qa/dev/projects'){
+                stash name:'buildfiles', includes:'**/*.txt'
+           }
+              dir '/home/qa/dev/projects/moved' {
+                 unstash  'buildfiles'      
+               }
+
+           }
+           
+       }
+
+    }
+
+
+}
