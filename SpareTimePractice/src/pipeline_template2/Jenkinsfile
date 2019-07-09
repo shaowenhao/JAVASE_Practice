@@ -1,0 +1,28 @@
+pipeline {
+// Handle failture
+    agent {
+      label 'TestMachine'
+    }
+  
+  stages{
+      stage('Test'){
+          steps{
+              
+             sh 'echo post testing' 
+          }      
+      }   
+  }
+  post{
+      
+      always {
+          echo 'Hello Pipeline'
+      }
+      failure {
+          echo 'There is failture'
+      }
+      cleanup {
+          echo 'At last anyway execute'
+      }
+  }
+    
+}
