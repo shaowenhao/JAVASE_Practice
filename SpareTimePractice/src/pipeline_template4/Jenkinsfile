@@ -1,40 +1,33 @@
-
-/* 
-   Parallel execution 
-*/
-
-pipeline {
-    agent none
+pipeline{
+    agent any
+    // bat get cms not recognized add environemnt
+    environment {
+        PATH = "C:\\WINDOWS\\SYSTEM32"
+    }
+    options {
+        skipStagesAfterUnstable()
+    }
     stages {
-        stage('Run Tests') {
-            parallel {
-                stage('Test On Windows') {
-                    agent {
-                        label "windows"
-                    }
-                    steps {
-                        bat "run-tests.bat"
-                    }
-                    post {
-                        always {
-                            junit "**/TEST-*.xml"
-                        }
-                    }
-                }
-                stage('Test On Linux') {
-                    agent {
-                        label "linux"
-                    }
-                    steps {
-                        sh "run-tests.sh"
-                    }
-                    post {
-                        always {
-                            junit "**/TEST-*.xml"
-                        }
-                    }
-                }
+        stage('Example Build') {
+           steps {
+               bat script: 'dir'
+               echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+           }
+        }
+        stage('Test') {
+        when{
+            expression {
+            currentBuild.result == null || currentBuild.result=='SUCCESS'
             }
+        }
+           steps {
+               bat script: 'echo start test'
+           }
+        }
+        stage('Deploy') {
+           steps {
+               bat script: 'echo start Deploy'
+           }
         }
     }
 }

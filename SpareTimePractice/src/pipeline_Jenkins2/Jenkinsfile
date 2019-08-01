@@ -1,0 +1,19 @@
+
+pipeline{
+    agent any
+    stages{
+       stage('test'){
+        steps{
+            script{
+                def resp = input message:'<message>',parameters:[string(defaultValue:'',description:'Enter response',
+name:'Response'),password(defaultValue:'',name:'password',description:'Enter password')]
+
+echo "Response name=" + resp['Response']
+echo "password = ${resp['password']}"
+echo resp.Response + " " + resp.password
+            }
+        }
+    } 
+    }
+    
+}
