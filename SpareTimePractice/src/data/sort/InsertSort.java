@@ -17,7 +17,7 @@ public class InsertSort {
 			if(nums[i]<nums[i-1]) {
 				// ba dangqian bianli shuzi cunqilai
 				int temp = nums[i];
-				int j;
+				int j; // xia biao baocun qilai
 				// Bian li dangqian shuzi qianmian suoyou shuzi
 				for(j=i-1;j>=0&& temp<nums[j];j--) {
 					//Ba qianyige shuzi fugei houyge shuzi
