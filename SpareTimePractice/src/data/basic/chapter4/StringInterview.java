@@ -90,9 +90,9 @@ public class StringInterview {
 	public static void stringReverse(String str) {
 		 // String input = "I am a student";
 		 StringBuilder sb= new StringBuilder(str);
-		 String strAfterReverse = sb.reverse().toString();
+		 String strAfterReverse2 = sb.reverse().toString();
 		 
-		 String[] strs = strAfterReverse.split(" ");
+		 String[] strs = strAfterReverse2.split(" ");
 		 for(int i=0; i<strs.length;i++) {
 			 StringBuilder sb2 = new StringBuilder(strs[i]);
 			 StringBuilder strReverse = sb2.reverse();
@@ -101,3 +101,4 @@ public class StringInterview {
 		 }
 	}
 }
+
